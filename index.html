@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="내가 피곤한 진짜 이유를 알아보는 심리테스트. 8개 질문으로 나의 에너지 방전 유형을 확인해보세요.">
+    <meta name="keywords" content="심리테스트, 피곤한 이유, 에너지 테스트, 자아성찰, MBTI, 성격테스트">
+    <meta name="author" content="피곤테스트">
+    <meta property="og:title" content="내가 피곤한 진짜 이유 테스트 💤">
+    <meta property="og:description" content="왜 이렇게 지치는 걸까? 8개 질문으로 알아보는 나의 에너지 방전 유형!">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>내가 피곤한 진짜 이유 테스트 💤 | 에너지 방전 유형 심리테스트</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+    <!-- Google AdSense: 아래 주석 해제 후 본인 ID 입력 -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">😴 피곤테스트</a>
+            <div class="nav-links">
+                <a href="about.html">소개</a>
+                <a href="privacy.html">개인정보처리방침</a>
+                <a href="terms.html">이용약관</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ad-container">광고 영역</div>
+
+    <div class="bg-deco">
+        <span class="star">⭐</span>
+        <span class="star">✨</span>
+        <span class="star">💫</span>
+        <span class="star">⭐</span>
+        <span class="star">✨</span>
+        <span class="star">💫</span>
+        <span class="cloud">☁️</span>
+        <span class="cloud">☁️</span>
+    </div>
+
+    <div class="container">
+        <div id="start-screen" class="screen active">
+            <div class="start-card">
+                <div class="title-emoji">😴</div>
+                <h1 class="title">내가 피곤한<br>진짜 이유</h1>
+                <p class="subtitle">왜 이렇게 지치는 걸까...?<br>8개 질문으로 알아보는<br>나의 에너지 방전 유형! ⚡</p>
+                <button class="start-btn" onclick="startTest()">테스트 시작하기 →</button>
+            </div>
+            <div class="intro-section">
+                <h2>🔍 이 테스트는 어떤 테스트인가요?</h2>
+                <p>매일 충분히 자는데도 피곤하신가요? 주말에 푹 쉬어도 월요일이 되면 다시 지쳐있나요? 어쩌면 당신이 피곤한 이유는 단순한 수면 부족이 아닐 수 있습니다.</p>
+                <p>이 테스트는 심리적, 정서적으로 에너지가 소모되는 패턴을 분석하여 당신만의 '에너지 방전 유형'을 알려드립니다.</p>
+                <h2>📊 8가지 에너지 방전 유형</h2>
+                <ul>
+                    <li>🎭 감정 스펀지형 - 타인의 감정에 과몰입</li>
+                    <li>🔇 속앓이 장인형 - 표현 억제로 인한 스트레스</li>
+                    <li>🏃 휴식 알러지형 - 쉬지 못하는 강박</li>
+                    <li>🎯 99점 불만족형 - 완벽주의로 인한 소진</li>
+                    <li>🪞 비교 자동완성형 - 끊임없는 비교 습관</li>
+                    <li>🌀 미래 스포일러형 - 과도한 미래 걱정</li>
+                    <li>🙋 착한애 증후군형 - 거절하지 못하는 성향</li>
+                    <li>🔋 에너지 도둑 피해형 - 소모적 인간관계</li>
+                </ul>
+                <h2>⏱️ 소요시간</h2>
+                <p>약 2-3분 (8개 질문)</p>
+            </div>
+        </div>
+
+        <div id="question-screen" class="screen">
+            <div class="question-card">
+                <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+                <div class="question-number" id="q-number">Q1 / 8</div>
+                <div class="question-text" id="q-text"></div>
+                <div class="options" id="options"></div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <div class="result-card">
+                <div class="result-emoji" id="result-emoji"></div>
+                <div class="result-type" id="result-type"></div>
+                <div class="result-tagline" id="result-tagline"></div>
+                <div class="result-desc" id="result-desc"></div>
+                <div class="result-tip">
+                    <div class="result-tip-title">💊 처방전</div>
+                    <div class="result-tip-text" id="result-tip"></div>
+                </div>
+                <div class="share-section">
+                    <div class="share-title">친구에게 공유하기</div>
+                    <div class="share-buttons">
+                        <button class="share-btn kakao" onclick="shareKakao()">카카오톡</button>
+                        <button class="share-btn twitter" onclick="shareTwitter()">트위터</button>
+                        <button class="share-btn copy" onclick="copyLink()">링크복사</button>
+                    </div>
+                </div>
+                <button class="retry-btn" onclick="restartTest()">다시 테스트하기 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-container">광고 영역</div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <h3>😴 피곤테스트</h3>
+                    <p>나를 이해하는 첫 걸음,<br>재미있는 심리테스트로 시작하세요.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>테스트 안내</h3>
+                    <p>본 테스트는 재미와 자기이해를 위한 목적으로 제작되었습니다. 전문적인 심리상담을 대체하지 않습니다.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>문의</h3>
+                    <a href="mailto:rnu301@gmail.com">rnu301@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 피곤테스트. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">개인정보처리방침</a>
+                    <a href="terms.html">이용약관</a>
+                    <a href="about.html">서비스 소개</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
